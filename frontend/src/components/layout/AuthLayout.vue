@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex min-h-screen items-center justify-center overflow-hidden p-4">
+  <div class="ciallo-auth relative flex min-h-screen items-center justify-center overflow-hidden p-4">
     <!-- Background -->
     <div
       class="absolute inset-0 bg-gradient-to-br from-gray-50 via-primary-50/30 to-gray-100 dark:from-dark-950 dark:via-dark-900 dark:to-dark-950"
@@ -29,11 +29,11 @@
       <!-- Logo/Brand -->
       <div class="mb-8 text-center">
         <!-- Custom Logo or Default Logo -->
-        <template v-if="settingsLoaded">
+
           <div
             class="mb-4 inline-flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl shadow-lg shadow-primary-500/30"
           >
-            <img :src="siteLogo || '/logo.svg'" alt="Logo" class="h-full w-full object-contain" />
+            <img :src="siteLogo || '/ciallo-mark.svg'" alt="Logo" class="h-full w-full object-contain" />
           </div>
           <h1 class="text-gradient mb-2 text-3xl font-bold">
             {{ siteName }}
@@ -41,7 +41,6 @@
           <p class="text-sm text-gray-500 dark:text-dark-400">
             {{ siteSubtitle }}
           </p>
-        </template>
       </div>
 
       <!-- Card Container -->
@@ -69,10 +68,9 @@ import { sanitizeUrl } from '@/utils/url'
 
 const appStore = useAppStore()
 
-const siteName = computed(() => appStore.siteName || 'Sub2API')
+const siteName = computed(() => appStore.siteName === 'Sub2API' ? 'CialloAI' : (appStore.siteName || 'CialloAI'))
 const siteLogo = computed(() => sanitizeUrl(appStore.siteLogo || '', { allowRelative: true, allowDataUrl: true }))
-const siteSubtitle = computed(() => appStore.cachedPublicSettings?.site_subtitle || 'Subscription to API Conversion Platform')
-const settingsLoaded = computed(() => appStore.publicSettingsLoaded)
+const siteSubtitle = computed(() => appStore.cachedPublicSettings?.site_subtitle || '一站式 AI API 中转与模型路由')
 
 const currentYear = computed(() => new Date().getFullYear())
 

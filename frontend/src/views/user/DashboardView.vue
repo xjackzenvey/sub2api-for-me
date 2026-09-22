@@ -1,6 +1,17 @@
 <template>
   <AppLayout>
-    <div class="space-y-6">
+    <div class="ciallo-dashboard-page space-y-6">
+      <section class="ciallo-dashboard-hero">
+        <div>
+          <div class="ciallo-dashboard-hero__meta">CialloAI / control room</div>
+          <h1>欢迎回来，{{ dashboardName }}</h1>
+          <p>今天也让每一次请求，沿着最顺滑的回路抵达合适的模型。</p>
+        </div>
+        <div class="ciallo-dashboard-hero__actions">
+          <span class="ciallo-dashboard-status">路由服务在线</span>
+          <router-link to="/keys" class="ciallo-dashboard-action">管理 API Key <span aria-hidden="true">↗</span></router-link>
+        </div>
+      </section>
       <div v-if="loading" class="flex items-center justify-center py-12"><LoadingSpinner /></div>
       <template v-else-if="stats">
         <UserDashboardStats :stats="stats" :balance="user?.balance || 0" :is-simple="authStore.isSimpleMode" :platform-quotas="platformQuotas" />
@@ -24,6 +35,7 @@ import { getMyPlatformQuotas } from '@/api/user'
 import { formatDateLocalInput } from '@/utils/format'
 
 const authStore = useAuthStore(); const user = computed(() => authStore.user)
+const dashboardName = computed(() => user.value?.email?.split('@')[0] || '旅人')
 const stats = ref<UserStatsType | null>(null); const loading = ref(false); const loadingUsage = ref(false); const loadingCharts = ref(false)
 const trendData = ref<TrendDataPoint[]>([]); const modelStats = ref<ModelStat[]>([]); const recentUsage = ref<UsageLog[]>([])
 const platformQuotas = ref<PlatformQuotaItem[] | null>(null)

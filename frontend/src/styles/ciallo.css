@@ -1475,7 +1475,8 @@
 
 .ciallo-dashboard-hero__mascot {
   position: absolute;
-  right: 5%;
+  /* Keep the illustration clear of the status and API-key actions. */
+  right: 15%;
   bottom: -4.2rem;
   z-index: 0;
   width: clamp(10rem, 19vw, 15rem);

@@ -33,7 +33,7 @@
           <div
             class="mb-4 inline-flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl shadow-lg shadow-primary-500/30"
           >
-            <img :src="siteLogo || '/ciallo-mark.svg'" alt="Logo" class="h-full w-full object-contain" />
+            <img :src="siteLogo || '/assets/ciallo-girl-logo.png'" alt="CialloAI logo" class="h-full w-full object-contain" />
           </div>
           <h1 class="text-gradient mb-2 text-3xl font-bold">
             {{ siteName }}

@@ -16,7 +16,7 @@
     <header class="ciallo-compact__nav">
       <div class="ciallo-brand">
         <span class="ciallo-brand__mark">
-          <img :src="siteLogo || '/ciallo-mark.svg'" alt="CialloAI" />
+          <img :src="siteLogo || '/assets/ciallo-girl-logo.png'" alt="CialloAI logo" />
         </span>
         <span>
           <span class="ciallo-brand__name">{{ displaySiteName }}</span>
@@ -60,7 +60,7 @@
 
     <main class="ciallo-compact__main">
       <section class="ciallo-compact__panel">
-        <img :src="siteLogo || '/ciallo-mark.svg'" alt="CialloAI logo" />
+        <img :src="siteLogo || '/assets/ciallo-girl-logo.png'" alt="CialloAI logo" />
         <h1>{{ displaySiteName }}</h1>
         <p>{{ siteSubtitle }}</p>
         <router-link :to="entryPath" class="ciallo-landing__button">
@@ -90,7 +90,7 @@
     <header class="ciallo-landing__nav">
       <div class="ciallo-brand">
         <span class="ciallo-brand__mark">
-          <img :src="siteLogo || '/ciallo-mark.svg'" alt="CialloAI" />
+          <img :src="siteLogo || '/assets/ciallo-girl-logo.png'" alt="CialloAI logo" />
         </span>
         <span>
           <span class="ciallo-brand__name">{{ displaySiteName }}</span>

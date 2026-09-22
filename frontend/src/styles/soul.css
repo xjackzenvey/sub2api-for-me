@@ -1,0 +1,495 @@
+/* SoulAI minimalist skin --------------------------------------------------
+ * This branch keeps the existing Sub2API workflows and component structure,
+ * but replaces the decorative CialloAI presentation with a quiet, focused UI.
+ */
+
+:root.soulai-theme {
+  --soul-bg: #f7f8fb;
+  --soul-surface: #ffffff;
+  --soul-surface-soft: #fbfcfe;
+  --soul-ink: #182033;
+  --soul-muted: #69758b;
+  --soul-faint: #9aa5b7;
+  --soul-line: #e8ecf2;
+  --soul-accent: #4f64d8;
+  --soul-accent-strong: #3d51c4;
+  --soul-accent-soft: #eef1ff;
+  --soul-success: #208a68;
+  --soul-shadow: 0 10px 30px rgba(34, 46, 74, 0.06);
+  --soul-radius: 14px;
+}
+
+:root.soulai-theme.dark {
+  --soul-bg: #11151d;
+  --soul-surface: #171c26;
+  --soul-surface-soft: #1b212c;
+  --soul-ink: #f1f4f8;
+  --soul-muted: #a8b1c0;
+  --soul-faint: #748095;
+  --soul-line: #2a3342;
+  --soul-accent: #91a2ff;
+  --soul-accent-strong: #a9b5ff;
+  --soul-accent-soft: #222a49;
+  --soul-success: #64d4ac;
+  --soul-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+}
+
+:root.soulai-theme,
+:root.soulai-theme body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+}
+
+:root.soulai-theme .ciallo-shell,
+:root.soulai-theme .ciallo-landing,
+:root.soulai-theme .ciallo-compact,
+:root.soulai-theme .ciallo-auth {
+  color: var(--soul-ink);
+  font-family: inherit;
+  letter-spacing: normal;
+}
+
+/* App shell */
+:root.soulai-theme .ciallo-shell {
+  background: var(--soul-bg) !important;
+}
+
+:root.soulai-theme .ciallo-shell::before,
+:root.soulai-theme .ciallo-ambient,
+:root.soulai-theme .ciallo-shell > .bg-mesh-gradient {
+  display: none !important;
+}
+
+:root.soulai-theme .ciallo-shell .sidebar {
+  background: var(--soul-surface) !important;
+  border-right: 1px solid var(--soul-line) !important;
+  box-shadow: none !important;
+  backdrop-filter: none;
+  color: var(--soul-ink);
+}
+
+:root.soulai-theme .ciallo-shell .sidebar-header {
+  height: 4.5rem;
+  border-bottom-color: var(--soul-line) !important;
+}
+
+:root.soulai-theme .ciallo-shell .sidebar-logo {
+  border: 0 !important;
+  border-radius: 10px;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+:root.soulai-theme .ciallo-shell .sidebar-brand-title,
+:root.soulai-theme .ciallo-shell .ciallo-header h1 {
+  color: var(--soul-ink) !important;
+}
+
+:root.soulai-theme .ciallo-shell .sidebar-section-title {
+  color: var(--soul-faint) !important;
+  letter-spacing: 0.08em;
+}
+
+:root.soulai-theme .ciallo-shell .sidebar-nav {
+  padding-top: 1rem;
+}
+
+:root.soulai-theme .ciallo-shell .sidebar-link {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--soul-muted) !important;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+:root.soulai-theme .ciallo-shell .sidebar-link:hover {
+  color: var(--soul-ink) !important;
+  background: var(--soul-surface-soft) !important;
+  border-color: var(--soul-line);
+  transform: none;
+}
+
+:root.soulai-theme .ciallo-shell .sidebar-link-active {
+  color: var(--soul-accent) !important;
+  background: var(--soul-accent-soft) !important;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+:root.soulai-theme .ciallo-shell .sidebar-link-active::after {
+  right: 0.7rem;
+  width: 0.3rem;
+  height: 0.3rem;
+  background: var(--soul-accent);
+  box-shadow: none;
+}
+
+:root.soulai-theme .ciallo-shell .ciallo-header {
+  min-height: 4rem;
+  background: var(--soul-surface) !important;
+  border-bottom-color: var(--soul-line) !important;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+:root.soulai-theme .ciallo-shell .ciallo-header p,
+:root.soulai-theme .ciallo-shell .ciallo-header .text-gray-500,
+:root.soulai-theme .ciallo-shell .ciallo-header .text-gray-600,
+:root.soulai-theme .ciallo-shell .ciallo-header a,
+:root.soulai-theme .ciallo-shell .ciallo-header button {
+  color: var(--soul-muted) !important;
+}
+
+:root.soulai-theme .ciallo-shell .ciallo-header a:hover,
+:root.soulai-theme .ciallo-shell .ciallo-header button:hover {
+  color: var(--soul-ink) !important;
+  background: var(--soul-surface-soft) !important;
+}
+
+:root.soulai-theme .ciallo-shell .card,
+:root.soulai-theme .ciallo-shell .glass-card,
+:root.soulai-theme .ciallo-shell .stat-card {
+  background: var(--soul-surface) !important;
+  border: 1px solid var(--soul-line) !important;
+  border-radius: var(--soul-radius) !important;
+  box-shadow: var(--soul-shadow) !important;
+  color: var(--soul-ink);
+}
+
+:root.soulai-theme .ciallo-shell .card:hover,
+:root.soulai-theme .ciallo-shell .card-hover:hover {
+  border-color: #d4dbeb !important;
+  box-shadow: 0 12px 34px rgba(34, 46, 74, 0.08) !important;
+}
+
+:root.soulai-theme.dark .ciallo-shell .card:hover,
+:root.soulai-theme.dark .ciallo-shell .card-hover:hover {
+  border-color: #3b475b !important;
+}
+
+:root.soulai-theme .ciallo-shell .text-gray-900,
+:root.soulai-theme .ciallo-shell .text-gray-800,
+:root.soulai-theme .ciallo-shell .font-semibold.text-gray-900,
+:root.soulai-theme .ciallo-shell .font-medium.text-gray-900 {
+  color: var(--soul-ink) !important;
+}
+
+:root.soulai-theme .ciallo-shell .text-gray-700,
+:root.soulai-theme .ciallo-shell .text-gray-600,
+:root.soulai-theme .ciallo-shell .text-gray-500,
+:root.soulai-theme .ciallo-shell .text-gray-400 {
+  color: var(--soul-muted) !important;
+}
+
+:root.soulai-theme .ciallo-shell .text-primary-600,
+:root.soulai-theme .ciallo-shell .text-primary-700,
+:root.soulai-theme .ciallo-shell .text-primary-500 {
+  color: var(--soul-accent) !important;
+}
+
+:root.soulai-theme .ciallo-shell .bg-white,
+:root.soulai-theme .ciallo-shell .bg-gray-50,
+:root.soulai-theme .ciallo-shell .bg-gray-100,
+:root.soulai-theme .ciallo-shell .bg-white\/80 {
+  background-color: var(--soul-surface) !important;
+}
+
+:root.soulai-theme .ciallo-shell .border-gray-100,
+:root.soulai-theme .ciallo-shell .border-gray-200,
+:root.soulai-theme .ciallo-shell .border-gray-300,
+:root.soulai-theme .ciallo-shell .border-white\/20,
+:root.soulai-theme .ciallo-shell .border-b,
+:root.soulai-theme .ciallo-shell .border-t {
+  border-color: var(--soul-line) !important;
+}
+
+:root.soulai-theme .ciallo-shell .btn-primary,
+:root.soulai-theme .ciallo-shell .btn-success {
+  border: 0;
+  border-radius: 9px;
+  background: var(--soul-accent) !important;
+  color: #fff !important;
+  box-shadow: none;
+}
+
+:root.soulai-theme .ciallo-shell .btn-primary:hover,
+:root.soulai-theme .ciallo-shell .btn-success:hover {
+  background: var(--soul-accent-strong) !important;
+  box-shadow: none;
+}
+
+:root.soulai-theme .ciallo-shell .btn-secondary {
+  background: var(--soul-surface) !important;
+  border-color: var(--soul-line) !important;
+  color: var(--soul-ink) !important;
+}
+
+:root.soulai-theme .ciallo-shell .input,
+:root.soulai-theme .ciallo-shell input,
+:root.soulai-theme .ciallo-shell select,
+:root.soulai-theme .ciallo-shell textarea {
+  background: var(--soul-surface) !important;
+  border-color: var(--soul-line) !important;
+  border-radius: 9px;
+  color: var(--soul-ink) !important;
+}
+
+:root.soulai-theme .ciallo-shell .input:focus,
+:root.soulai-theme .ciallo-shell input:focus,
+:root.soulai-theme .ciallo-shell select:focus,
+:root.soulai-theme .ciallo-shell textarea:focus {
+  border-color: var(--soul-accent) !important;
+  box-shadow: 0 0 0 3px rgba(79, 100, 216, 0.12) !important;
+}
+
+:root.soulai-theme .ciallo-shell .table th,
+:root.soulai-theme .ciallo-shell .table td {
+  border-color: var(--soul-line) !important;
+}
+
+:root.soulai-theme .ciallo-shell .table th {
+  color: var(--soul-faint) !important;
+}
+
+:root.soulai-theme .ciallo-shell .table td {
+  color: var(--soul-muted) !important;
+}
+
+:root.soulai-theme .ciallo-shell .table tbody tr:hover {
+  background: var(--soul-surface-soft) !important;
+}
+
+/* Dashboard welcome panel */
+:root.soulai-theme .ciallo-dashboard-hero {
+  min-height: 10rem;
+  padding: 1.65rem 1.75rem;
+  border: 1px solid var(--soul-line);
+  border-radius: 16px;
+  background: var(--soul-surface) !important;
+  box-shadow: var(--soul-shadow);
+}
+
+:root.soulai-theme .ciallo-dashboard-hero::after,
+:root.soulai-theme .ciallo-dashboard-hero__halo,
+:root.soulai-theme .ciallo-dashboard-hero__mascot {
+  display: none;
+}
+
+:root.soulai-theme .ciallo-dashboard-hero__meta {
+  color: var(--soul-accent);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+}
+
+:root.soulai-theme .ciallo-dashboard-hero h1 {
+  color: var(--soul-ink);
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  letter-spacing: -0.04em;
+}
+
+:root.soulai-theme .ciallo-dashboard-hero p {
+  color: var(--soul-muted);
+}
+
+:root.soulai-theme .ciallo-dashboard-status {
+  border-color: rgba(32, 138, 104, 0.18);
+  color: var(--soul-success);
+  background: rgba(32, 138, 104, 0.06);
+}
+
+:root.soulai-theme .ciallo-dashboard-status::before {
+  background: var(--soul-success);
+  box-shadow: none;
+}
+
+:root.soulai-theme .ciallo-dashboard-action {
+  min-height: 2.45rem;
+  border: 0;
+  border-radius: 9px;
+  background: var(--soul-accent);
+  color: #fff;
+  box-shadow: none;
+}
+
+:root.soulai-theme .ciallo-dashboard-action:hover {
+  background: var(--soul-accent-strong);
+  box-shadow: none;
+}
+
+/* Public, compact, and auth pages */
+:root.soulai-theme .ciallo-landing,
+:root.soulai-theme .ciallo-compact,
+:root.soulai-theme .ciallo-auth {
+  background: var(--soul-bg) !important;
+}
+
+:root.soulai-theme .ciallo-landing::before,
+:root.soulai-theme .ciallo-compact::before,
+:root.soulai-theme .ciallo-auth::before,
+:root.soulai-theme .ciallo-landing__glow,
+:root.soulai-theme .ciallo-compact__glow,
+:root.soulai-theme .ciallo-landing__stars {
+  display: none !important;
+}
+
+:root.soulai-theme .ciallo-landing__nav,
+:root.soulai-theme .ciallo-compact__nav {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+:root.soulai-theme .ciallo-brand__mark {
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  box-shadow: none;
+}
+
+:root.soulai-theme .ciallo-brand__name,
+:root.soulai-theme .ciallo-landing h1,
+:root.soulai-theme .ciallo-compact__panel h1 {
+  color: var(--soul-ink) !important;
+}
+
+:root.soulai-theme .ciallo-brand__tag,
+:root.soulai-theme .ciallo-signal,
+:root.soulai-theme .ciallo-landing__lede,
+:root.soulai-theme .ciallo-fact span,
+:root.soulai-theme .ciallo-landing__footer,
+:root.soulai-theme .ciallo-compact__panel p,
+:root.soulai-theme .ciallo-compact__footer {
+  color: var(--soul-muted) !important;
+}
+
+:root.soulai-theme .ciallo-landing h1 {
+  font-size: clamp(3.2rem, 7vw, 6.6rem);
+  letter-spacing: -0.08em;
+}
+
+:root.soulai-theme .ciallo-landing h1 span,
+:root.soulai-theme .ciallo-landing h1 em {
+  color: var(--soul-ink) !important;
+  text-shadow: none;
+}
+
+:root.soulai-theme .ciallo-landing__button,
+:root.soulai-theme .ciallo-navlink--accent {
+  border: 0;
+  border-radius: 9px;
+  background: var(--soul-accent) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+:root.soulai-theme .ciallo-landing__button:hover,
+:root.soulai-theme .ciallo-navlink--accent:hover {
+  background: var(--soul-accent-strong) !important;
+  transform: translateY(-1px);
+}
+
+:root.soulai-theme .ciallo-landing__button--ghost,
+:root.soulai-theme .ciallo-navlink:not(.ciallo-navlink--accent) {
+  border-color: var(--soul-line) !important;
+  background: transparent !important;
+  color: var(--soul-muted) !important;
+}
+
+:root.soulai-theme .ciallo-orbit {
+  border: 0;
+  box-shadow: none;
+}
+
+:root.soulai-theme .ciallo-orbit::before,
+:root.soulai-theme .ciallo-orbit::after,
+:root.soulai-theme .ciallo-orbit__spark,
+:root.soulai-theme .ciallo-avatar,
+:root.soulai-theme .ciallo-terminal__badge {
+  display: none;
+}
+
+:root.soulai-theme .ciallo-terminal,
+:root.soulai-theme .ciallo-compact__panel,
+:root.soulai-theme .ciallo-feature-card {
+  border: 1px solid var(--soul-line);
+  border-radius: 14px;
+  background: var(--soul-surface) !important;
+  box-shadow: var(--soul-shadow);
+}
+
+:root.soulai-theme .ciallo-terminal {
+  transform: none;
+}
+
+:root.soulai-theme .ciallo-terminal__bar,
+:root.soulai-theme .ciallo-terminal__body,
+:root.soulai-theme .ciallo-terminal__line,
+:root.soulai-theme .ciallo-feature-card p,
+:root.soulai-theme .ciallo-feature-card strong {
+  color: var(--soul-muted) !important;
+}
+
+:root.soulai-theme .ciallo-terminal__line strong,
+:root.soulai-theme .ciallo-terminal__line em,
+:root.soulai-theme .ciallo-terminal__line .pink,
+:root.soulai-theme .ciallo-terminal__line .yellow {
+  color: var(--soul-accent) !important;
+}
+
+:root.soulai-theme .ciallo-terminal__meter {
+  background: var(--soul-accent-soft);
+}
+
+:root.soulai-theme .ciallo-terminal__meter span {
+  background: var(--soul-accent);
+}
+
+:root.soulai-theme .ciallo-auth .card-glass {
+  background: var(--soul-surface) !important;
+  border: 1px solid var(--soul-line) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--soul-shadow) !important;
+}
+
+:root.soulai-theme .ciallo-auth .text-gradient {
+  background-image: none !important;
+  color: var(--soul-ink) !important;
+}
+
+:root.soulai-theme .ciallo-auth .text-gray-900,
+:root.soulai-theme .ciallo-auth .font-semibold.text-gray-900,
+:root.soulai-theme .ciallo-auth .font-medium.text-gray-900 {
+  color: var(--soul-ink) !important;
+}
+
+:root.soulai-theme .ciallo-auth .text-gray-800,
+:root.soulai-theme .ciallo-auth .text-gray-700,
+:root.soulai-theme .ciallo-auth .text-gray-600,
+:root.soulai-theme .ciallo-auth .text-gray-500,
+:root.soulai-theme .ciallo-auth .text-gray-400 {
+  color: var(--soul-muted) !important;
+}
+
+:root.soulai-theme .ciallo-auth .input,
+:root.soulai-theme .ciallo-auth input,
+:root.soulai-theme .ciallo-auth select,
+:root.soulai-theme .ciallo-auth textarea {
+  background: var(--soul-surface) !important;
+  border-color: var(--soul-line) !important;
+  color: var(--soul-ink) !important;
+}
+
+:root.soulai-theme .ciallo-auth .btn-primary,
+:root.soulai-theme .ciallo-auth button[type='submit'] {
+  background: var(--soul-accent) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 720px) {
+  :root.soulai-theme .ciallo-landing h1 {
+    font-size: clamp(3rem, 16vw, 5rem);
+  }
+
+  :root.soulai-theme .ciallo-dashboard-hero {
+    min-height: 9rem;
+    padding: 1.25rem;
+  }
+}

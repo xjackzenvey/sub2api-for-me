@@ -8,6 +8,10 @@ import { updateFavicon } from '@/utils/branding'
 import { isIOSDevice } from '@/utils/device'
 import './style.css'
 import './styles/ciallo.css'
+import './styles/soul.css'
+
+// Keep this branch's presentation deterministic and intentionally minimal.
+document.documentElement.classList.add('soulai-theme')
 
 function initIOSViewportZoomFix() {
   // iOS Safari 在输入框字号小于 16px 时聚焦会自动放大页面，且失焦后不会恢复。
@@ -25,7 +29,7 @@ function initIOSViewportZoomFix() {
 
 function initThemeClass() {
   const savedTheme = localStorage.getItem('theme')
-  // CialloAI defaults to a light canvas. Users can still opt into dark mode
+  // SoulAI defaults to a light canvas. Users can still opt into dark mode
   // with the theme toggle, and the preference is persisted between sessions.
   const shouldUseDark = savedTheme === 'dark'
   document.documentElement.classList.toggle('dark', shouldUseDark)
@@ -46,8 +50,8 @@ async function bootstrap() {
   appStore.initFromInjectedConfig()
 
   // Set document title immediately after config is loaded
-  if (appStore.siteName && appStore.siteName !== 'CialloAI') {
-    document.title = `${appStore.siteName} - CialloAI Gateway`
+  if (appStore.siteName && appStore.siteName !== 'SoulAI') {
+    document.title = `${appStore.siteName} - SoulAI Gateway`
   }
   updateFavicon(appStore.siteLogo)
 

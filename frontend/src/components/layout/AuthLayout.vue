@@ -33,7 +33,7 @@
           <div
             class="mb-4 inline-flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl shadow-lg shadow-primary-500/30"
           >
-            <img :src="siteLogo || '/assets/ciallo-girl-logo.png'" alt="CialloAI logo" class="h-full w-full object-contain" />
+            <img :src="siteLogo || '/assets/soulai-logo.png'" alt="SoulAI logo" class="h-full w-full object-contain" />
           </div>
           <h1 class="text-gradient mb-2 text-3xl font-bold">
             {{ siteName }}
@@ -68,7 +68,7 @@ import { sanitizeUrl } from '@/utils/url'
 
 const appStore = useAppStore()
 
-const siteName = computed(() => appStore.siteName === 'Sub2API' ? 'CialloAI' : (appStore.siteName || 'CialloAI'))
+const siteName = computed(() => appStore.siteName === 'Sub2API' || appStore.siteName === 'CialloAI' ? 'SoulAI' : (appStore.siteName || 'SoulAI'))
 const siteLogo = computed(() => sanitizeUrl(appStore.siteLogo || '', { allowRelative: true, allowDataUrl: true }))
 const siteSubtitle = computed(() => appStore.cachedPublicSettings?.site_subtitle || '一站式 AI API 中转与模型路由')
 

@@ -16,11 +16,11 @@
     <header class="ciallo-compact__nav">
       <div class="ciallo-brand">
         <span class="ciallo-brand__mark">
-          <img :src="siteLogo || '/assets/ciallo-girl-logo.png'" alt="CialloAI logo" />
+          <img :src="siteLogo || '/assets/soulai-logo.png'" alt="SoulAI logo" />
         </span>
         <span>
           <span class="ciallo-brand__name">{{ displaySiteName }}</span>
-          <span class="ciallo-brand__tag">anime api relay</span>
+          <span class="ciallo-brand__tag">AI API gateway</span>
         </span>
       </div>
 
@@ -60,7 +60,7 @@
 
     <main class="ciallo-compact__main">
       <section class="ciallo-compact__panel">
-        <img :src="siteLogo || '/assets/ciallo-girl-logo.png'" alt="CialloAI logo" />
+        <img :src="siteLogo || '/assets/soulai-logo.png'" alt="SoulAI logo" />
         <h1>{{ displaySiteName }}</h1>
         <p>{{ siteSubtitle }}</p>
         <router-link :to="entryPath" class="ciallo-landing__button">
@@ -75,7 +75,7 @@
     </footer>
   </div>
 
-  <!-- CialloAI Default Home -->
+  <!-- SoulAI Default Home -->
   <div v-else class="ciallo-landing">
     <div class="ciallo-landing__glow" aria-hidden="true"></div>
     <div class="ciallo-landing__stars" aria-hidden="true">
@@ -90,11 +90,11 @@
     <header class="ciallo-landing__nav">
       <div class="ciallo-brand">
         <span class="ciallo-brand__mark">
-          <img :src="siteLogo || '/assets/ciallo-girl-logo.png'" alt="CialloAI logo" />
+          <img :src="siteLogo || '/assets/soulai-logo.png'" alt="SoulAI logo" />
         </span>
         <span>
           <span class="ciallo-brand__name">{{ displaySiteName }}</span>
-          <span class="ciallo-brand__tag">magical model routing</span>
+          <span class="ciallo-brand__tag">AI API gateway</span>
         </span>
       </div>
 
@@ -130,14 +130,14 @@
 
     <main class="ciallo-landing__hero">
       <section class="ciallo-landing__copy">
-        <div class="ciallo-signal">route online · all systems sparkle</div>
+        <div class="ciallo-signal">one gateway · every model</div>
         <h1>
-          把模型
-          <span>变成你的</span>
-          <em>魔法回路。</em>
+          让请求
+          <span>抵达合适的</span>
+          <em>模型。</em>
         </h1>
         <p class="ciallo-landing__lede">
-          {{ displaySiteName }} 是你的 AI API 中转站：统一密钥、灵活路由、清晰用量，让每一次请求都找到更合适的模型。
+          {{ displaySiteName }} 是一个专注于请求本身的 AI API 网关：统一密钥、清晰路由、透明用量。
         </p>
         <div class="ciallo-landing__actions">
           <router-link :to="entryPath" class="ciallo-landing__button">
@@ -162,7 +162,7 @@
           </a>
         </div>
 
-        <div class="ciallo-landing__facts" aria-label="CialloAI highlights">
+        <div class="ciallo-landing__facts" aria-label="SoulAI highlights">
           <div class="ciallo-fact">
             <strong>01</strong>
             <span>一把 Key，接入多模型</span>
@@ -178,7 +178,7 @@
         </div>
       </section>
 
-      <section class="ciallo-landing__visual" aria-label="CialloAI route monitor">
+      <section class="ciallo-landing__visual" aria-label="SoulAI route monitor">
         <div class="ciallo-orbit" aria-hidden="true">
           <span class="ciallo-orbit__spark"></span>
         </div>
@@ -186,15 +186,15 @@
         <div class="ciallo-terminal terminal-container">
           <div class="ciallo-terminal__bar">
             <span class="ciallo-terminal__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-            <span>ciallo / route-monitor</span>
+            <span>soulai / route-monitor</span>
             <span>LIVE</span>
           </div>
           <div class="ciallo-terminal__body">
-            <div class="ciallo-terminal__line"><strong>signal</strong><span>finding a soft landing for <span class="pink">claude-3.7</span></span></div>
-            <div class="ciallo-terminal__line"><strong>route</strong><span><em>✓ active</em> · dreamy-fast lane</span></div>
-            <div class="ciallo-terminal__line"><strong>relay</strong><span>https://api.ciallo.ai/v1</span></div>
+            <div class="ciallo-terminal__line"><strong>signal</strong><span>finding a clear path for <span class="pink">claude-3.7</span></span></div>
+            <div class="ciallo-terminal__line"><strong>route</strong><span><em>✓ active</em> · balanced lane</span></div>
+            <div class="ciallo-terminal__line"><strong>relay</strong><span>https://api.soulai.ai/v1</span></div>
             <div class="ciallo-terminal__line"><strong>latency</strong><span><span class="yellow">620ms</span> · 99.98% uptime</span></div>
-            <div class="ciallo-terminal__line"><strong>mood</strong><span>soft power / <span class="pink">high focus</span></span></div>
+            <div class="ciallo-terminal__line"><strong>mode</strong><span>quiet power / <span class="pink">high focus</span></span></div>
             <div class="ciallo-terminal__meter"><span></span><b>82%</b></div>
           </div>
           <div class="ciallo-terminal__badge">upstream synced</div>
@@ -202,7 +202,7 @@
       </section>
     </main>
 
-    <section class="ciallo-feature-rail" aria-label="CialloAI features">
+    <section class="ciallo-feature-rail" aria-label="SoulAI features">
       <article class="ciallo-feature-card">
         <div class="ciallo-feature-card__icon"><Icon name="link" size="sm" /></div>
         <strong>一个入口</strong>
@@ -222,7 +222,7 @@
 
     <footer class="ciallo-landing__footer">
       <span><strong>{{ displaySiteName }}</strong> · built for curious builders</span>
-      <span>© {{ currentYear }} · route with a little magic</span>
+      <span>© {{ currentYear }} · clarity for every request</span>
     </footer>
   </div>
 </template>
@@ -242,9 +242,9 @@ const authStore = useAuthStore()
 const appStore = useAppStore()
 
 // Keep custom admin-configured names, but replace the upstream default in the
-// visible public brand so this fork reads as CialloAI without touching backend data.
-const rawSiteName = computed(() => appStore.cachedPublicSettings?.site_name || appStore.siteName || 'CialloAI')
-const displaySiteName = computed(() => rawSiteName.value === 'Sub2API' ? 'CialloAI' : rawSiteName.value)
+// Keep the public brand stable without rewriting administrator-provided custom copy.
+const rawSiteName = computed(() => appStore.cachedPublicSettings?.site_name || appStore.siteName || 'SoulAI')
+const displaySiteName = computed(() => rawSiteName.value === 'Sub2API' || rawSiteName.value === 'CialloAI' ? 'SoulAI' : rawSiteName.value)
 const siteLogo = computed(() => sanitizeUrl(appStore.cachedPublicSettings?.site_logo || appStore.siteLogo || '', { allowRelative: true, allowDataUrl: true }))
 const siteSubtitle = computed(() => appStore.cachedPublicSettings?.site_subtitle || '一站式 AI API 中转与模型路由，让每一次请求都顺滑抵达。')
 const docUrl = computed(() => sanitizeUrl(appStore.cachedPublicSettings?.doc_url || appStore.docUrl || ''))

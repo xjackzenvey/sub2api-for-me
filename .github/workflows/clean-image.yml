@@ -1,0 +1,72 @@
+name: SoulAI Clean Branch Image
+
+on:
+  push:
+    branches:
+      - clean
+  workflow_dispatch:
+
+concurrency:
+  group: clean-image-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/sub2api
+
+jobs:
+  build-and-push:
+    if: github.ref == 'refs/heads/clean'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout clean
+        uses: actions/checkout@v6
+        with:
+          ref: clean
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract image metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.IMAGE_NAME }}
+          tags: |
+            type=raw,value=clean
+            type=sha,prefix=clean-
+          labels: |
+            org.opencontainers.image.title=SoulAI
+            org.opencontainers.image.description=SoulAI clean branch image built from the clean branch
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}
+
+      - name: Build and push branch image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            COMMIT=${{ github.sha }}
+          cache-from: type=gha,scope=clean-image
+          cache-to: type=gha,mode=max,scope=clean-image

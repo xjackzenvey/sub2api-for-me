@@ -14,7 +14,7 @@
         class="sidebar-logo flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl shadow-glow transition-opacity hover:opacity-80"
         @click="handleMenuItemClick(homePath)"
       >
-        <img :src="siteLogo || '/assets/ciallo-girl-logo.png'" alt="CialloAI logo" class="h-full w-full object-contain" />
+        <img :src="siteLogo || '/assets/soulai-logo.png'" alt="SoulAI logo" class="h-full w-full object-contain" />
       </router-link>
       <div class="sidebar-brand" :class="{ 'sidebar-brand-collapsed': sidebarCollapsed }" :aria-hidden="sidebarCollapsed ? 'true' : 'false'">
         <router-link
@@ -261,7 +261,7 @@ const homePath = computed(() => (isAdmin.value ? '/admin/dashboard' : '/dashboar
 const groupExpandOverrides = ref<Map<string, boolean>>(new Map())
 
 // Site settings from appStore (cached, no flicker)
-const siteName = computed(() => appStore.siteName === 'Sub2API' ? 'CialloAI' : (appStore.siteName || 'CialloAI'))
+const siteName = computed(() => appStore.siteName === 'Sub2API' || appStore.siteName === 'CialloAI' ? 'SoulAI' : (appStore.siteName || 'SoulAI'))
 const siteLogo = computed(() => sanitizeUrl(appStore.siteLogo || '', { allowRelative: true, allowDataUrl: true }))
 const siteVersion = computed(() => appStore.siteVersion)
 

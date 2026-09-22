@@ -26,7 +26,7 @@ export const useAppStore = defineStore('app', () => {
   // Public settings cache state
   const publicSettingsLoaded = ref<boolean>(false)
   const publicSettingsLoading = ref<boolean>(false)
-  const siteName = ref<string>('CialloAI')
+  const siteName = ref<string>('SoulAI')
   const siteLogo = ref<string>('')
   const siteVersion = ref<string>('')
   const contactInfo = ref<string>('')
@@ -294,7 +294,10 @@ export const useAppStore = defineStore('app', () => {
       window.__APP_CONFIG__ = { ...config }
     }
     cachedPublicSettings.value = config
-    siteName.value = config.site_name || 'CialloAI'
+    const configuredSiteName = config.site_name?.trim()
+    siteName.value = configuredSiteName && configuredSiteName !== 'Sub2API' && configuredSiteName !== 'CialloAI'
+      ? configuredSiteName
+      : 'SoulAI'
     siteLogo.value = config.site_logo || ''
     siteVersion.value = config.version || ''
     contactInfo.value = config.contact_info || ''

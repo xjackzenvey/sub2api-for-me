@@ -14,7 +14,7 @@
         class="sidebar-logo flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl shadow-glow transition-opacity hover:opacity-80"
         @click="handleMenuItemClick(homePath)"
       >
-        <img v-if="settingsLoaded" :src="siteLogo || '/ciallo-mark.svg'" alt="Logo" class="h-full w-full object-contain" />
+        <img :src="siteLogo || '/ciallo-mark.svg'" alt="Logo" class="h-full w-full object-contain" />
       </router-link>
       <div class="sidebar-brand" :class="{ 'sidebar-brand-collapsed': sidebarCollapsed }" :aria-hidden="sidebarCollapsed ? 'true' : 'false'">
         <router-link
@@ -264,7 +264,6 @@ const groupExpandOverrides = ref<Map<string, boolean>>(new Map())
 const siteName = computed(() => appStore.siteName === 'Sub2API' ? 'CialloAI' : (appStore.siteName || 'CialloAI'))
 const siteLogo = computed(() => sanitizeUrl(appStore.siteLogo || '', { allowRelative: true, allowDataUrl: true }))
 const siteVersion = computed(() => appStore.siteVersion)
-const settingsLoaded = computed(() => appStore.publicSettingsLoaded)
 
 // SVG Icon Components
 const DashboardIcon = {
@@ -934,10 +933,7 @@ function handleGroupClick(item: NavItem) {
 
 // Initialize theme
 const savedTheme = localStorage.getItem('theme')
-if (
-  savedTheme === 'dark' ||
-  (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)
-) {
+if (savedTheme === 'dark') {
   isDark.value = true
   document.documentElement.classList.add('dark')
 }

@@ -2,6 +2,7 @@
   <AppLayout>
     <div class="ciallo-dashboard-page space-y-6">
       <section class="ciallo-dashboard-hero">
+        <div class="ciallo-dashboard-hero__halo" aria-hidden="true"></div>
         <div>
           <div class="ciallo-dashboard-hero__meta">CialloAI / control room</div>
           <h1>欢迎回来，{{ dashboardName }}</h1>
@@ -11,6 +12,7 @@
           <span class="ciallo-dashboard-status">路由服务在线</span>
           <router-link to="/keys" class="ciallo-dashboard-action">管理 API Key <span aria-hidden="true">↗</span></router-link>
         </div>
+        <img class="ciallo-dashboard-hero__mascot" src="/assets/ciallo-mascot.png" alt="CialloAI 魔法向导" />
       </section>
       <div v-if="loading" class="flex items-center justify-center py-12"><LoadingSpinner /></div>
       <template v-else-if="stats">

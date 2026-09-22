@@ -25,9 +25,9 @@ function initIOSViewportZoomFix() {
 
 function initThemeClass() {
   const savedTheme = localStorage.getItem('theme')
-  const shouldUseDark =
-    savedTheme === 'dark' ||
-    (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+  // CialloAI defaults to a light canvas. Users can still opt into dark mode
+  // with the theme toggle, and the preference is persisted between sessions.
+  const shouldUseDark = savedTheme === 'dark'
   document.documentElement.classList.toggle('dark', shouldUseDark)
 }
 
